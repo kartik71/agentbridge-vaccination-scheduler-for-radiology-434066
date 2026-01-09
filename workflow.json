@@ -1,0 +1,380 @@
+{
+  "id": "tpl-3653740160",
+  "name": "Vaccination Scheduler for Radiology",
+  "description": "Vaccination Scheduler for Radiology clusters progress notes and summarizes trial registries; applies decision gates and observability; orchestrates via Order Entry to improve time-to-treatment.",
+  "industry": "Healthcare & Life Sciences",
+  "pattern": "Tool-Use",
+  "complexity": "Beginner",
+  "rating": 4.9,
+  "downloads": 14900,
+  "favorites": 2806,
+  "executionTime": "11 min",
+  "tags": [
+    "trials",
+    "care",
+    "oncology",
+    "tool-use",
+    "healthcare"
+  ],
+  "steps": [
+    {
+      "id": "intake",
+      "name": "Case Intake",
+      "description": "Collect, validate and normalize eligibility files from Care Management; attach a runId and timestamp for traceability."
+    },
+    {
+      "id": "api-discovery-0",
+      "name": "API Discovery",
+      "description": "Execute api discovery phase for the Tool-Use pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "tool-execution-1",
+      "name": "Tool Execution",
+      "description": "Execute tool execution phase for the Tool-Use pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "triage-0",
+      "name": "Triage",
+      "description": "Triage across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "intervention-1",
+      "name": "Intervention",
+      "description": "Intervention across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "eligibility-match-2",
+      "name": "Eligibility Match",
+      "description": "Eligibility Match across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "optimization-3",
+      "name": "Optimization",
+      "description": "Optimization across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "documentation-4",
+      "name": "Documentation",
+      "description": "Documentation across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "finalize",
+      "name": "Orchestration",
+      "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to PACS; return response JSON for the client."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "intake",
+      "type": "agentbridge",
+      "data": {
+        "label": "Case Intake",
+        "description": "Collect, validate and normalize eligibility files from Care Management; attach a runId and timestamp for traceability.",
+        "nodeType": "input",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 60,
+        "y": 120
+      }
+    },
+    {
+      "id": "api-discovery-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "API Discovery",
+        "description": "Execute api discovery phase for the Tool-Use pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "mcp",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 310,
+        "y": 120
+      }
+    },
+    {
+      "id": "tool-execution-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Tool Execution",
+        "description": "Execute tool execution phase for the Tool-Use pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "mcp",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 560,
+        "y": 120
+      }
+    },
+    {
+      "id": "triage-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Triage",
+        "description": "Triage across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 810,
+        "y": 120
+      }
+    },
+    {
+      "id": "intervention-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Intervention",
+        "description": "Intervention across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1060,
+        "y": 120
+      }
+    },
+    {
+      "id": "eligibility-match-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "Eligibility Match",
+        "description": "Eligibility Match across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1310,
+        "y": 120
+      }
+    },
+    {
+      "id": "optimization-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "Optimization",
+        "description": "Optimization across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1560,
+        "y": 120
+      }
+    },
+    {
+      "id": "documentation-4",
+      "type": "agentbridge",
+      "data": {
+        "label": "Documentation",
+        "description": "Documentation across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1810,
+        "y": 120
+      }
+    },
+    {
+      "id": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "Orchestration",
+        "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to PACS; return response JSON for the client.",
+        "nodeType": "output",
+        "category": "mcp-tools",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 2060,
+        "y": 120
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0",
+      "source": "intake",
+      "target": "api-discovery-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-1",
+      "source": "api-discovery-0",
+      "target": "tool-execution-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-2",
+      "source": "tool-execution-1",
+      "target": "triage-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-3",
+      "source": "triage-0",
+      "target": "intervention-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-4",
+      "source": "intervention-1",
+      "target": "eligibility-match-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-5",
+      "source": "eligibility-match-2",
+      "target": "optimization-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-6",
+      "source": "optimization-3",
+      "target": "documentation-4",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-7",
+      "source": "documentation-4",
+      "target": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    }
+  ],
+  "preview": "Case Intake → API Discovery → Tool Execution → Triage → Intervention → Eligibility Match → Optimization → Documentation → Orchestration",
+  "featured": false,
+  "createdAt": "2025-07-04T15:10:08.773Z",
+  "author": "AgentBridge Team",
+  "deployments": 1492,
+  "lastDeployed": "2025-12-20T21:36:39.829Z",
+  "configuration": {
+    "provider": "nvidia",
+    "region": "us-west-2",
+    "compute": "cpu-optimized"
+  },
+  "healthStatus": "degraded",
+  "deploymentCount": 763,
+  "githubRepo": "https://github.com/agentbridge/vaccination-scheduler-for-radiology",
+  "maintainer": "AgentBridge Team",
+  "agenticLayers": {
+    "reasoning": {
+      "modelType": "gpt-4o",
+      "reasoningPattern": "ReAct",
+      "contextWindow": 128000,
+      "memorySystem": "hybrid",
+      "decisionFramework": "Multi-Criteria Decision Analysis"
+    },
+    "orchestration": {
+      "workflowEngine": "n8n",
+      "coordinationPattern": "centralized",
+      "failoverStrategy": "retry",
+      "loadBalancing": "intelligent"
+    },
+    "protocol": {
+      "communicationProtocol": "MCP",
+      "messageFormat": "JSON",
+      "authenticationMethod": "OAuth2",
+      "encryptionStandard": "AES-256"
+    },
+    "governance": {
+      "policyEngine": "OPA",
+      "complianceStandards": [
+        "SOC2",
+        "GDPR"
+      ],
+      "auditTrail": true,
+      "riskAssessment": "medium",
+      "dataClassification": "internal"
+    },
+    "observability": {
+      "metricsCollection": "Prometheus",
+      "loggingFramework": "ELK",
+      "tracingSystem": "Jaeger",
+      "alertingRules": [],
+      "dashboardConfig": {
+        "layout": "grid",
+        "widgets": [
+          "metrics",
+          "logs",
+          "traces"
+        ],
+        "refreshInterval": 30
+      }
+    },
+    "intelligence": {
+      "learningCapability": "online",
+      "knowledgeBase": "vector-db",
+      "adaptationMechanism": "ml-based",
+      "performanceOptimization": "ai-driven"
+    }
+  },
+  "businessFunction": "data-preparation-node",
+  "autonomyLevel": "semi-autonomous",
+  "cognitiveCapabilities": [
+    {
+      "name": "Pattern Recognition",
+      "description": "Identifies patterns in business processes",
+      "confidenceLevel": 0.85,
+      "lastUpdated": "2026-01-09T15:10:08.800Z"
+    }
+  ],
+  "roiMetrics": {
+    "costSavings": 39451,
+    "timeReduction": 35,
+    "accuracyImprovement": 35,
+    "throughputIncrease": 71,
+    "errorReduction": 48
+  },
+  "complianceFramework": {
+    "standards": [
+      "SOC2",
+      "GDPR",
+      "ISO27001"
+    ],
+    "certifications": [
+      "SOC2 Type II"
+    ],
+    "auditFrequency": "monthly",
+    "lastAudit": "2025-12-18T06:45:55.465Z"
+  },
+  "scalingPolicy": {
+    "minInstances": 1,
+    "maxInstances": 10,
+    "scaleUpThreshold": 80,
+    "scaleDownThreshold": 20,
+    "cooldownPeriod": 300
+  }
+}
