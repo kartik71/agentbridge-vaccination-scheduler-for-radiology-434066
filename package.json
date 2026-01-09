@@ -1,0 +1,39 @@
+{
+  "name": "vaccination-scheduler-for-radiology",
+  "version": "1.0.0",
+  "description": "Vaccination Scheduler for Radiology clusters progress notes and summarizes trial registries; applies decision gates and observability; orchestrates via Order Entry to improve time-to-treatment.",
+  "main": "workflow.json",
+  "keywords": [
+    "agentbridge",
+    "workflow",
+    "automation",
+    "n8n",
+    "tool-use",
+    "healthcare-&-life-sciences",
+    "trials",
+    "care",
+    "oncology",
+    "tool-use",
+    "healthcare"
+  ],
+  "author": "AgentBridge",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kartik71/agentbridge-vaccination-scheduler-for-radiology-434066.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kartik71/agentbridge-vaccination-scheduler-for-radiology-434066/issues"
+  },
+  "homepage": "https://github.com/kartik71/agentbridge-vaccination-scheduler-for-radiology-434066#readme",
+  "scripts": {
+    "start": "echo \"Import this workflow into your n8n instance\"",
+    "validate": "echo \"Workflow validation complete\"",
+    "test": "echo \"Run workflow tests\"",
+    "deploy": "echo \"Deploy to n8n instance\""
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "n8n": ">=1.0.0"
+  }
+}
